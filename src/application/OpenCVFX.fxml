@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OpenCVFXController">
+   <center>
+      <BorderPane prefHeight="743.0" prefWidth="1014.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <Button fx:id="button" mnemonicParsing="false" onAction="#startCamera" text="Start capturing" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="40.0" />
+               </BorderPane.margin></Button>
+         </bottom>
+         <center>
+            <ImageView fx:id="currentFrame" fitHeight="585.0" fitWidth="771.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <Pane prefHeight="679.0" prefWidth="223.0" BorderPane.alignment="CENTER">
+               <children>
+                  <CheckBox fx:id="grayScaleCheckBox" layoutX="42.0" layoutY="126.0" mnemonicParsing="false" text="Use gray scale" />
+                  <CheckBox fx:id="gaussBlurCheckBox" layoutX="42.0" layoutY="165.0" mnemonicParsing="false" text="Use Gaussian Blur" />
+                  <TitledPane animated="false" layoutX="11.0" layoutY="199.0" text="Edge detection">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="cannyCheckBox" layoutX="30.0" layoutY="14.0" mnemonicParsing="false" text="Enable edge detection" />
+                              <Slider fx:id="thresholdSlider" layoutX="30.0" layoutY="106.0" />
+                              <Label layoutX="74.0" layoutY="82.0" text="Threshold" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <Label fx:id="captureLabel" layoutX="9.0" layoutY="606.0" prefHeight="33.0" prefWidth="982.0" text="Capturing the camera">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#getFileForCapturing" text="Capture file..." />
+                        <MenuItem mnemonicParsing="false" onAction="#setCapturingFromCamera" text="Capture camera" />
+                     </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>
